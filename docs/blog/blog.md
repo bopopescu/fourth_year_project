@@ -35,7 +35,7 @@ Ben.
 
 Yesterday I finished my work on creating a logo for the project. I gave this somewhat of a priority early on in the project lifecycle. I believe it's important to establish an identity within the hundred or so projects that the examiners will be grading this year. It also helps me create a theme that will be consistent throughout all the documentation I'll provide. Here's what it looks like.
 
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/logo.png "logo")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/logo.png "logo")
 
 The majority of the research I've done about using machine learning to predict financial data has suggested using Python because of it's powerful libraries like NumPy etc. To develop a WebApp written in Python will be something completely new to me. Again, a lot of articles online suggest that you use Django in order to achieve this. I’ve also never used Django before.
 
@@ -85,7 +85,7 @@ I made a small questionnaire so I can brief myself before stepping into the room
 
 After meeting with the project Approval panel this week I’m pleased to say my project has been approved. Thomas and Charlie gave me some advice on the challenges I might face. One of which is likely to be the lack of accuracy my AI predictor will have. To combat this I’ll have to implement some sort of sentiment analysis. I’m unsure whether I’ll have to create this myself or use some sort of plug-in. As with everything in the project it’s extremely time dependent. I’ll insert the notes they gave me on my Dashboard below.
 
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/approval.png "approval")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/approval.png "approval")
 
 For the meantime I’ll focus on creating a simple front-end and connecting the WebApp to the database. I also need to do more reading on chart analysis and Long Short Term Memory as recommended by Martin.
 
@@ -96,7 +96,7 @@ The last two weeks have predominantly been spent creating and implementing a sim
 
 Here's what the initial installation screen looks like. This is just on localhost.
 
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/StartScreen.png "frontend")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/StartScreen.png "frontend")
 
 ## Blog 7.
 ### 22nd December 2018.
@@ -104,16 +104,16 @@ Here's what the initial installation screen looks like. This is just on localhos
 After connecting and setting up an Amazon Web Services Database instance to the app I ran into issues with Amazon charging me for using their RDS system. They charged me $10 for exceeding their free usage limit, I figured that $10 every month with little usage of the database would be unsustainable for the duration of the project, particularly when it came to the more database intensive periods.
 I now face the problem of creating a new Database instance and re-connecting it to the app. This will have to be achieved after my exams which, unfortunately, will have to take top priority until they conclude in late January.
 
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/Capture.PNG "free tier limit")
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/aws_bill.png "billing")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/Capture.PNG "free tier limit")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/aws_bill.png "billing")
 
 ## Blog 8.
 ### 5th Febuary 2019.
 
 Due to the increasing time demands of assignments from semester 1 and the ensuing exams following Christmas the project had to take a back seat. I have today solved the issue with the search for a database system. I have concluded that simply running an SQLite DB system locally will be sufficient for the remainder of the project. Which is disappointing as I had hoped to gain insights such as the demographics of the app via the use of a cloud-based system such as AWS.
 
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/sp_index.png "SP Index")
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/time.png "Time")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/sp_index.png "SP Index")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/time.png "Time")
 
 An observation I've made is that progress on the app is far from linear, which I naively assumed it would be. But rather bouts of "sprints" let's say. I am hoping this semester will provide more opportunities to work on the project, as last year was a logistical nightmare for trying to be productive.
 
@@ -123,8 +123,8 @@ An observation I've made is that progress on the app is far from linear, which I
 Login, sign up and reset password functionality have been added to the app. Now the challenge will be making the app look nice through Bootstrap,
 providing a trading connection through API keys and creating the AI.
 
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/login.png "login")
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/reset_pass.png "Reset Password")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/login.png "login")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/reset_pass.png "Reset Password")
 
 
 ## Blog 10.
@@ -133,8 +133,8 @@ providing a trading connection through API keys and creating the AI.
 I have successfully connected SmartPredict to the CoinBase API through an OAuth connection, this is more secure than the API key connection I had 
 previously planned.
 
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/crypt_api.png "crypto api connecton")
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/crypt_email.png "crypto api email")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/crypt_api.png "crypto api connecton")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/crypt_email.png "crypto api email")
 
 ## Blog 11.
 ### 5th March 2019.
@@ -142,8 +142,8 @@ previously planned.
 The past few days have been spent filling out the ethical approval form for the project. I required a level 2 notification approval for my user and usability testing
 this was quickly approved so I can now proceed with other parts of the project, namely the AI implementation and Bootstrap front-end.
 
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/ethical_approval.png "ethics")
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/dashboard.png "dashboard")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/ethical_approval.png "ethics")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/dashboard.png "dashboard")
 
 ## Blog 12.
 ### 14th March 2019.
@@ -151,7 +151,7 @@ this was quickly approved so I can now proceed with other parts of the project, 
 The site is now live [here](http://kellyb45.pythonanywhere.com/smartpredict/). I am hosting it through PythonAnywhere.
 
 The site wasn't up long before getting this email! working on getting it back online now.
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/phising.png "phishing")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/phising.png "phishing")
 
 ## Blog 13.
 ### 15th March 2019.
@@ -159,7 +159,7 @@ The site wasn't up long before getting this email! working on getting it back on
 While I'm waiting for PythonAnywhere to get back to me about the hosting I've been working locally to make the front-end look nicer. I implemented Bootstrap
 to achieve a more professional looking app. Here is how the index looks now. 
 
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/local_index.png "index")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/local_index.png "index")
 
 ## Blog 14.
 ### 23rd March 2019.
@@ -167,7 +167,7 @@ to achieve a more professional looking app. Here is how the index looks now.
 The site is back live again [here](http://kellyb45.pythonanywhere.com/smartpredict/) after some battling with pythonAnywhere.
 
 A few aesthetic changes have been made through Bootstrap and this can be best seen with the newly created 'About' page.
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/live.png "live")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/live.png "live")
 
 ## Blog 15.
 ### 29th March 2019.
@@ -175,7 +175,7 @@ A few aesthetic changes have been made through Bootstrap and this can be best se
 I have finally gotten the Oanda API cooperating so that I can return current price data, past data for each user, make trades etc. on the Forex market.
 This data is returned in JSON format, the next challenge will be making it readable for users.
 
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/forex.png "JSON data")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/forex.png "JSON data")
 
 Just a side note, I prefer to work offline (localhost) while implementing new solutions and then push the final product rather than work online constantly
 as this has led to errors in the past (see blog 12).
@@ -185,7 +185,7 @@ as this has led to errors in the past (see blog 12).
 
 I have finished work on parsing the JSON object so the user can read it and gain valuable information such as real-time stock prices.
 
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/prices.png "FOREX currency pairs")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/prices.png "FOREX currency pairs")
 
 This is the start of the FOREX Dashboard, it looks basic for now but the core functionality is complete. These prices are grabbed from the OANDA API and are updated on the site every minute.
 I will now work on making trade calls from our side so that users can trade without leaving SmartPredict. I have the trading element working for my account
@@ -197,8 +197,8 @@ I have developed the Crypto Dashboard further so that it can now graph data on t
 the datestamp (on the X-axis) to a readable date. The problem is when I pass the python list to the javascript implementation of Chart.js is gives out when the list is anything but integers. I'm currently working on a 
 workaround for this. Next will be getting the RSI (Relative Strength Index) of each currency.
 
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/btcchart.png "Bitcoin Graph")
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/ethchart.png "Etherueum Graph")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/btcchart.png "Bitcoin Graph")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/ethchart.png "Etherueum Graph")
 
 
 ## Blog 18.
@@ -206,7 +206,7 @@ workaround for this. Next will be getting the RSI (Relative Strength Index) of e
 
 I have improved the graph date format as discussed previously and implemented new graphs for other currencies and markets, namely forex. It makes sense to put forex on the same graph as they are closely related and don't blow the proportionality of the graph out as BTC and ETH would. 
 
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/forexchart.png "Forex Graph")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/forexchart.png "Forex Graph")
 
  The two Dashboards are now only lacking Sentiment Analysis and Algorithmic input which I've been working on for the last few days.
  
@@ -216,7 +216,7 @@ I have improved the graph date format as discussed previously and implemented ne
 I have gotten a large amount of work done on the Dashboard over the past week. The crypto AI is producing a semi-accurate prediction, this was developed using Tensorflow's LSTM (Long Short Term Memory) algorithm along with Numpy, Pandas and Keras for some useful functions. The prediction algorithm itself
 is not fully complete with other influences still to be added to it and therefore weightings changed. But as it stands I'm pretty happy with it. I've also returned RSI (Relative Strength Index) AND MACD (Moving Average Convergence/Divergence) data to the Dashboard, this will help users make accurate trading decisions when the time comes.
 
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/predict.png "Prediction Output")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/predict.png "Prediction Output")
 
 The RSI indicator will be:
 * Green when the value is greater than 60
@@ -230,7 +230,7 @@ The Output price will be shown in:
 This will give the user a simple traffic-light system to follow for easier understanding. The MACD can be seen on the graph with the fast value being calculated over 12 day period and slow being calculated over 26 days of EMA (Exponential Moving Average).
 The crossover of these lines on the graph is of particular interest to the user, 'when the MACD falls below the signal line, it is a bearish signal which indicates that it may be time to sell. Conversely, when the MACD rises above the signal line, the indicator gives a bullish signal, which suggests that the price of the asset is likely to experience upward momentum.'
 
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/MACD.png "MACD")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/MACD.png "MACD")
 
 ## Blog 20.
 ### 19th April 2019.
@@ -238,7 +238,7 @@ The crossover of these lines on the graph is of particular interest to the user,
 I have implemented Sentiment Analysis as suggested by Thomas Ward in my project approval meeting. The function uses Tweepy and TextBlob to analyse live tweets and return their overall sentiment. This will give the application a deeper understanding of the market.
 The text will be displayed in the traffic light system which the user will already be familiar with as well as the graph of the 100 most recent tweets pertaining to the currency, in this case, Bitcoin.
 
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/sent.png "Sentiment Analysis for Bitcoin")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/sent.png "Sentiment Analysis for Bitcoin")
 
 The Dashboard and app look slightly different than before with all elements being centred and a footer is added to the project. This I feel gives the app a more 'professional' look and feel.
 
@@ -256,10 +256,10 @@ I am supporting 3 currency pairs with both sides of EUR/GBP for particular inter
 * GBP/USD
 * GBP/EUR
 
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/accuracy.png "Accuracy for EUR/GBP")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/accuracy.png "Accuracy for EUR/GBP")
 
 Here is a graph of EUR/USD with the blue line being the actual data and red being the algorithm's prediction of the final 25 day period.
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/pred_graph.png "Predition for EUR/USD")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/pred_graph.png "Predition for EUR/USD")
 
 **It is important to note that while developing and implementing both algorithms I made a conscious effort to keep 'tinkering' to a minimum, This would cause overfitting of the small dataset I had of 2000 data entries for Bitcoin and ~ 4000 data entries for each Forex currency pair.**
 
@@ -276,13 +276,13 @@ The testing so far has been mainly:
 
 I am nearly finished the user testing, with most of the other forms being completed already.
 
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/unit1.png "Unit Tests")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/unit1.png "Unit Tests")
 
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/coverage.png "Percentage Coverage")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/coverage.png "Percentage Coverage")
 
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/score1.png "Lint Test")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/score1.png "Lint Test")
 
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/score3.png "Lint Test")
+![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/score3.png "Lint Test")
 
 Full Testing Documentation can be found In the Docs Section.
 
