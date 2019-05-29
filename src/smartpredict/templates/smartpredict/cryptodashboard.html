@@ -1,0 +1,396 @@
+{% block content %}
+<html>
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width , initial-scale=1">
+    <title>SmartPredict</title>
+    <link rel="shortcut icon" type="image/png" href="{% static '/smartpredict/favicon.ico' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+</head>
+<body>
+{% if user.is_authenticated %}
+<!-- Navigation -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'index' %}">
+        <img src="{% static '/smartpredict/small_logo.png' %}" width="54" height="30" class="d-inline-block align-top" alt="">
+        SmartPredict
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'apiconnect' %}">Connect API <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'dashboard' %}">Dashboard <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">About <span class="sr-only"></span></a>
+            </li>
+        </ul>
+
+        <a class="btn btn-outline-danger" href="{% static '/user_manual.pdf' %}" target="_blank">Help</a>
+    </div>
+</nav>
+
+<!--<img src="{% static '/smartpredict/logo.png' %}" class="img-thumbnail float-right" alt="logo" width="200" height="200">-->
+<div class="jumbotron text-center">
+    <div class="container">
+        <h1 class="display-4">This is your Trading Dashboard</h1>
+        <p class="lead">The following graphs show the past 100 days of open prices on each Cryptocurrency.</p>
+    </div>
+</div>
+<!-- DROPDOWN
+<div class="dropdown">
+<button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  Select Currency
+</button>
+    <form method="post">
+        {%csrf_token%}
+        {{form.as_p}}
+<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+  <a class="dropdown-item" href="">US Dollars</a>
+  <a class="dropdown-item" href="#">Euro</a>
+  <a class="dropdown-item" href="#">GB Pounds</a>
+</div>
+    </form>
+</div>-->
+
+<!--<script src="https://1forge.com/widget-cdn/forex-ticker/main.js" type="text/javascript"></script>
+
+<div id="forex-ticker"></div>
+
+<script>
+    ForexTicker.init(
+    {
+        pairs: ["EUR/USD", "USDJPY", "GBPUSD", "USDCHF", "EURCHF", "AUDUSD"],
+        theme: "light", //this can be "light" or "dark"
+        margin: "10px",
+        width: "100%",
+        height: "600px",
+  });
+</script>-->
+
+
+<div class="container">
+    <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #e8eaea;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #e8eaea;
+}
+</style>
+    <table>
+  <tr>
+    <th>Currency</th>
+    <th>Current Price</th>
+    <th>Expected Closing Price</th>
+    <th>Relative Strength Index</th>
+    <th>Sentiment Analysis</th>
+  </tr>
+  <tr>
+    <td>BitCoin</td>
+    <td>€{{btc_current}}</td>
+    <td>€{{prediction}}</td>
+    <td>{% if btc_rsi > 60 %}
+    <p class="text-success">{{btc_rsi}}</p>
+    {% elif btc_rsi < 50 %}
+    <p class="text-danger">{{btc_rsi}}</p>
+    {% else %}
+    <p class="text-warning">{{btc_rsi}}</p>
+    {% endif %}</td>
+    <td>{% if btc_sent > 3 %}
+    <p class="text-success">{{btc_sent}}</p>
+    {% elif btc_sent < -0.5 %}
+    <p class="text-danger">{{btc_sent}}</p>
+    {% else %}
+    <p class="text-warning">{{btc_sent}}</p>
+    {%endif%}</td>
+  </tr>
+  <tr>
+    <td>Ethereum</td>
+    <td>€{{eth_current}}</td>
+    <td>N/A</td>
+    <td>{% if eth_rsi > 60 %}
+    <p class="text-success">{{eth_rsi}}</p>
+    {% elif eth_rsi < 50 %}
+    <p class="text-danger">{{eth_rsi}}</p>
+    {% else %}
+    <p class="text-warning">{{eth_rsi}}</p>
+    {%endif%}</td>
+    <td>{% if eth_sent > 3 %}
+    <p class="text-success">{{eth_sent}}</p>
+    {% elif eth_sent < -0.5 %}
+    <p class="text-danger">{{eth_sent}}</p>
+    {% else %}
+    <p class="text-warning">{{eth_sent}}</p>
+    {%endif%}</td>
+  </tr>
+</table>
+    <br>
+
+    {% if btc_rsi > 60 %}
+    <p class="text-success">Bitcoin RSI: {{btc_rsi}}</p>
+    {% elif btc_rsi < 50 %}
+    <p class="text-danger">Bitcoin RSI: {{btc_rsi}}</p>
+    {% else %}
+    <p class="text-warning">Bitcoin RSI: {{btc_rsi}}</p>
+    {% endif %}
+    <p>Current Bitcoin Price: €{{btc_current}}</p>
+    {%if prediction > btc_current %}
+    <p class="text-success">Expected closing price: €{{prediction}}</p>
+    {% else %}
+    <p class="text-danger">Expected closing price: €{{prediction}}</p>
+    {% endif %}
+    <canvas id="BTCChart"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+    <script>
+      var ctx = document.getElementById('BTCChart').getContext('2d');
+      var times = [];
+      {% for t in times %}
+      times.push('{{t}}');
+      {%endfor%}
+      var chart = new Chart(ctx, {
+          // The type of chart we want to create
+          type: 'line',
+
+          // The data for our dataset
+          data: {
+              labels: times,
+              datasets: [{
+                  label: 'Bitcoin Price €',
+                  backgroundColor: 'rgb(255, 99, 132)',
+                  borderColor: 'rgb(255, 99, 132)',
+                  borderWidth: 1,
+                  fill: false,
+                  data: {{btc_prices}}
+              }]
+          },
+
+          // Configuration options go here
+          options: {
+            scales: {
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Price',
+                        fontSize: 20
+                    }
+                }],
+                xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Date',
+                        fontSize: 20
+                    },
+                }]
+            }
+        }
+    });
+    </script>
+    <canvas id="BTCMACDChart"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+    <script>
+      var ctx = document.getElementById('BTCMACDChart').getContext('2d');
+      var chart = new Chart(ctx, {
+          // The type of chart we want to create
+          type: 'line',
+
+          // The data for our dataset
+          data: {
+              labels: times,
+              datasets: [{
+                  label: 'BTC MACD',
+                  backgroundColor: 'rgb(20, 255, 20)',
+                  borderColor: 'rgb(20, 255, 20)',
+                  borderWidth: 0.5,
+                  fill: false,
+                  data: {{btc_macd_dif}}
+              },
+              {
+                  label: 'Signal Line',
+                  backgroundColor: 'rgb(211,211,211)',
+                  borderColor: 'rgb(211,211,211)',
+                  borderWidth: 0.5,
+                  fill: 'false',
+                  data: {{btc_macd_signal}}
+              }]
+          },
+
+          // Configuration options go here
+          options: {
+            scales: {
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Moving Average Convergence Divergence (MACD)',
+                        fontSize: 15
+                    }
+                }],
+                xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Date',
+                        fontSize: 20
+                    },
+                }]
+            }
+        }
+    });
+    </script>
+    {% if btc_sent > 3 %}
+    <p class="text-success">Positive Sentiment Analysis for Bitcoin</p>
+    {% elif btc_sent < -0.5 %}
+    <p class="text-danger">Negative Sentiment Analysis for Bitcoin</p>
+    {% else %}
+    <p class="text-warning">Neutral Sentiment Anlaysis for Bitcoin</p>
+    {%endif%}
+
+
+    <canvas id="BTCSENT"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script>
+      var ctx = document.getElementById('BTCSENT').getContext('2d');
+      new Chart(document.getElementById("BTCSENT"), {
+        type: 'doughnut',
+        data: {
+          labels: ["Positive %", "Negative %", "Neutral %"],
+          datasets: [{
+            label: "Sentiment",
+            backgroundColor: ["#00FF00", "#FF0000","#FFFF00"],
+            data: {{btc_sents}}
+          }]
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'Sentiment Analysis of Bitcoin'
+          }
+        }
+    });
+
+    </script>
+    {% if eth_rsi > 60 %}
+    <p class="text-success">Ethereum RSI: {{eth_rsi}}</p>
+    {% elif eth_rsi < 50 %}
+    <p class="text-danger">Ethereum RSI: {{eth_rsi}}</p>
+    {% else %}
+    <p class="text-warning">Ethereum RSI: {{eth_rsi}}</p>
+    {%endif%}
+    {{eth_message}}
+    <canvas id="ETHChart"></canvas>
+
+    <script>
+
+      var ctx2 = document.getElementById('ETHChart').getContext('2d');
+      var chart = new Chart(ctx2, {
+          // The type of chart we want to create
+          type: 'line',
+
+          // The data for our dataset
+          data: {
+              labels: times,
+              datasets: [{
+                  label: 'Ethereum Price €',
+                  backgroundColor: 'rgb(135, 206, 250)',
+                  borderColor: 'rgb(135, 206, 250)',
+                  borderWidth: 1,
+                  fill: false,
+                  data: {{eth_prices}}
+              }]
+          },
+
+          // Configuration options go here
+          options: {
+            scales: {
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Price',
+                        fontSize: 20
+                    }
+                }],
+                xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Date',
+                        fontSize: 20
+                    },
+                }]
+            }
+        }
+    });
+    </script>
+    <br>
+
+    <canvas id="ETHSENT"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script>
+      var ctx = document.getElementById('ETHSENT').getContext('2d');
+      new Chart(document.getElementById("ETHSENT"), {
+        type: 'doughnut',
+        data: {
+          labels: ["Positive %", "Negative %", "Neutral %"],
+          datasets: [{
+            label: "Sentiment",
+            backgroundColor: ["#00FF00", "#FF0000","#FFFF00"],
+            data: {{eth_sents}}
+          }]
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'Sentiment Analysis of Ethereum'
+          }
+        }
+    });
+
+    </script>
+    <br>
+</div>
+<br>
+{% else %}
+<H1> Login is required to access the Dashboard</H1>
+<a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">Login</a>
+{% endif %}
+
+<!-- Footer -->
+<footer class="page-footer font-small fixed-bottom">
+
+  <!-- Copyright -->
+    <div class="p-2 mb-0 bg-dark text-light text-center">This is a fourth year project by Ben Kelly, a student in Dublin City University studying Computer Applications with Software Engineering:
+  <!--<div class="footer-copyright text-center py-3">This is a fourth year project by Ben Kelly, a student in Dublin City University studying Computer Applications with Software Engineering:-->
+    <a href="https://www.linkedin.com/in/ben-kelly-42b869163/" class="text-secondary"> LinkedIn profile</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+</body>
+</html>
+{% endblock %}

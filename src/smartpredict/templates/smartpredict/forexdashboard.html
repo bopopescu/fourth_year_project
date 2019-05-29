@@ -1,0 +1,265 @@
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width , initial-scale=1">
+    <title>SmartPredict</title>
+    <link rel="shortcut icon" type="image/png" href="{% static '/smartpredict/favicon.ico' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+{% block content %}
+<!-- Navigation -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{% url 'index' %}">
+    <img src="{% static '/smartpredict/small_logo.png' %}" width="54" height="30" class="d-inline-block align-top" alt="logo">
+    SmartPredict
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'about' %}">About <span class="sr-only"></span></a>
+      </li>
+        {% if user.is_authenticated %}
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Logout <span class="sr-only"></span></a>
+      </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'apiconnect' %}">Connect API <span class="sr-only"></span></a>
+      </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'dashboard' %}">Dashboard <span class="sr-only"></span></a>
+      </li>
+        {% else %}
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Login <span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'password_reset' %}">Reset Password</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'register' %}">Sign Up</a>
+      </li>
+        {% endif %}
+    </ul>
+
+
+    <a class="btn btn-outline-danger" href="{% static '/user_manual.pdf' %}" target="_blank">Help</a>
+  </div>
+</nav>
+
+
+<!--<img src="{% static '/smartpredict/logo.png' %}" class="img-thumbnail float-right" alt="logo" width="200" height="200">-->
+<div class="jumbotron text-center">
+  <h1 class="display-4">Foreign Exchange Dashboard</h1>
+  <p class="lead">You can see the FOREX prices of currency pairs</p>
+  <hr class="my-4">
+  <p>As of {% now "H:i" %} on the {% now "jS F" %} the bid prices are:</p>
+</div>
+<div class="container">
+
+  <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #e8eaea;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #e8eaea;
+}
+</style>
+    <table>
+  <tr>
+    <th>Currency Pair</th>
+    <th>Current Price</th>
+    <th>Expected Closing Price</th>
+    <th>Relative Strength Index</th>
+  </tr>
+  <tr>
+    <td>EUR/USD</td>
+    <td>€{{current_eur_usd}}</td>
+    <td>€{{pred_eur_usd_price}}</td>
+    <td>{% if eur_usd_rsi > 60 %}
+    <p class="text-success">{{eur_usd_rsi}}</p>
+    {% elif eur_usd_rsi < 50 %}
+    <p class="text-danger">{{eur_usd_rsi}}</p>
+    {% else %}
+    <p class="text-warning">{{eur_usd_rsi}}</p>
+    {% endif %}</td>
+  </tr>
+  <tr>
+    <td>GBP/USD</td>
+    <td>£{{current_gbp_usd}}</td>
+    <td>£{{pred_gbp_usd_price}}</td>
+    <td>{% if gbp_usd_rsi > 60 %}
+    <p class="text-success">{{gbp_usd_rsi}}</p>
+    {% elif gbp_usd_rsi < 50 %}
+    <p class="text-danger">{{gbp_usd_rsi}}</p>
+    {% else %}
+    <p class="text-warning">{{gbp_usd_rsi}}</p>
+    {% endif %}</td>
+  </tr>
+      <tr>
+    <td>GBP/EUR</td>
+    <td>£{{gbp_eur_current}}</td>
+    <td>£{{pred_gbp_eur_price}}</td>
+    <td>{% if gbp_eur_rsi > 60 %}
+    <p class="text-success">{{gbp_eur_rsi}}</p>
+    {% elif gbp_eur_rsi < 50 %}
+    <p class="text-danger">{{gbp_eur_rsi}}</p>
+    {% else %}
+    <p class="text-warning">{{gbp_eur_rsi}}</p>
+    {% endif %}</td>
+  </tr>
+      <tr>
+    <td>EUR/GBP</td>
+    <td>€{{eur_gbp_current}}</td>
+    <td>€{{pred_eur_gbp_price}}</td>
+    <td>{% if eur_gbp_rsi > 60 %}
+    <p class="text-success">{{eur_gbp_rsi}}</p>
+    {% elif eur_gbp_rsi < 50 %}
+    <p class="text-danger">{{eur_gbp_rsi}}</p>
+    {% else %}
+    <p class="text-warning">{{eur_gbp_rsi}}</p>
+    {% endif %}</td>
+  </tr>
+</table>
+    <br>
+    <canvas id="FOREXChart"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+    <script>
+      var ctx = document.getElementById('FOREXChart').getContext('2d');
+      var times = [];
+      {% for d in days %}
+      times.push('{{d}}');
+      {%endfor%}
+      times = times.reverse();
+      var chart = new Chart(ctx, {
+          // The type of chart we want to create
+          type: 'line',
+
+          // The data for our dataset
+          data: {
+              labels: times,
+              datasets: [{
+                  label: 'EUR/USD €',
+                  backgroundColor: 'rgb(0, 255, 0)',
+                  borderColor: 'rgb(0, 255, 0)',
+                  borderWidth: 1,
+                  fill: false,
+                  data: {{eur_usd_prices}}
+              },
+                {
+                  label: 'EUR/GBP €',
+                  backgroundColor: 'rgb(255, 99, 132)',
+                  borderColor: 'rgb(255, 99, 132)',
+                  borderWidth: 1,
+                  fill: false,
+                  data: {{eur_gbp_prices}}
+              },
+                {
+                  label: 'GBP/USD £',
+                  backgroundColor: 'rgb(135, 206, 250)',
+                  borderColor: 'rgb(135, 206, 250)',
+                  borderWidth: 1,
+                  fill: false,
+                  data: {{gbp_usd_prices}}
+              },
+                {
+                  label: 'GBP/EUR £',
+                  backgroundColor: 'rgb(197, 139, 231)',
+                  borderColor: 'rgb(197, 139, 231)',
+                  borderWidth: 1,
+                  fill: false,
+                  data: {{gbp_eur_prices}}
+              }]
+          },
+
+          // Configuration options go here
+          options: {
+            scales: {
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Price',
+                        fontSize: 20
+                    }
+                }],
+                xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Date',
+                        fontSize: 20
+                    },
+                }]
+            }
+        }
+    });
+    </script>
+  {% if sent > 3 %}
+    <p class="text-success">Positive Sentiment Analysis for Forex Market</p>
+    {% elif sent < -0.5 %}
+    <p class="text-danger">Negative Sentiment Analysis for Forex Market</p>
+    {% else %}
+    <p class="text-warning">Neutral Sentiment Anlaysis for Forex Market</p>
+    {%endif%}
+
+  <canvas id="SENT"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script>
+      var ctx = document.getElementById('SENT').getContext('2d');
+      new Chart(document.getElementById("SENT"), {
+        type: 'doughnut',
+        data: {
+          labels: ["Positive %", "Negative %", "Neutral %"],
+          datasets: [{
+            label: "Sentiment",
+            backgroundColor: ["#00FF00", "#FF0000","#FFFF00"],
+            data: {{sents}}
+          }]
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'Sentiment Analysis of Forex'
+          }
+        }
+    });
+
+    </script>
+  <br>
+</div>
+<br>
+<!--REFRESH PAGE EVERY MINUTE
+<meta http-equiv="refresh" content="60">-->
+{% endblock %}
+
+<!-- Footer -->
+<footer class="page-footer font-small fixed-bottom">
+
+  <!-- Copyright -->
+    <div class="p-2 mb-0 bg-dark text-light text-center">This is a fourth year project by Ben Kelly, a student in Dublin City University studying Computer Applications with Software Engineering:
+  <!--<div class="footer-copyright text-center py-3">This is a fourth year project by Ben Kelly, a student in Dublin City University studying Computer Applications with Software Engineering:-->
+    <a href="https://www.linkedin.com/in/ben-kelly-42b869163/" class="text-secondary"> LinkedIn profile</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+</body>

@@ -1,0 +1,531 @@
+"""stringLength = 15
+    letters = string.ascii_lowercase
+    random_string = ''.join(random.choice(letters) for i in range(stringLength))
+    ts = time.time()
+    ts = round(ts)
+    head = {
+        'status': 'Hello Ladies and Gents',
+        'include_entities': True,
+        'oauth_consumer_key': consumer_key,
+        'oauth_nonce': random_string,
+        'oauth_signature_method': "HMAC-SHA1",
+        'oauth_timestamp': ts,
+        'oauth_token': access_token,
+        'oauth_version': "1.0"
+    }
+
+    a = 'POST&https%3A%2F%2Fapi.twitter.com%2F1.1%2Fstatuses%2Fupdate.json&include_entities%3Dtrue%26oauth_consumer_key%3DHF9ENJeHDmsvE2vdOd2hgdcue%26oauth_nonce%3Dwerstxycruivuyfgbhy%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1554847833%26oauth_token%3D2768999237-ae9azJ4K2arDP8qDNyzcmSu6Dkwhw7zFlOOe61T%26oauth_version%3D1.0%26status%3DHello%2520Ladies%2520%252B%2520Gentlemen%252C%2520a%25'
+    b = 'POST&https%3A%2F%2Fapi.twitter.com%2F1.1%2Fstatuses%2Fupdate.json&include_entities%3Dtrue%26oauth_consumer_key%3Dxvz1evFS4wEEPTGEFPHBog%26oauth_nonce%3DkYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1318622958%26oauth_token%3D370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb%26oauth_version%3D1.0%26status%3DHello%2520Ladies%2520%252B%2520Gentlemen%252C%2520a%25'
+
+    signing_key = '1i7w1EUNlQmGwvFUCMQ9KHq5fCOikilWIBBIyNgxzmVwo7e5vA&WuLkjuFQKMvUsIgKFSEUarsfnwRq83kBAE6qUOpttnQ1b'
+
+    headers= {
+        'Authorization': "OAuth oauth_consumer_key = HF9ENJeHDmsvE2vdOd2hgdcue",
+        'oauth_nonce': random_string,
+        'oauth_signature': "d1d212a0096ba248d553e69f2b9e66324d5ffbf6",
+        'oauth_signature_method': "HMAC-SHA1",
+        'oauth_timestamp': str(ts),
+        'oauth_token': "AAAAAAAAAAAAAAAAAAAAADNM9wAAAAAAs%2BWNd4rg4RrhMMAyInDy5D54KUQ%3DQ3q3BfKVMpX30CnuWmGoYkVxclOzDVKMVs25XxCC6wGS7VT5bB",
+        'oauth_version': "1.0"
+    }
+    oauth_callback = "http%3A%2F%2Fkellyb45.pythonanywhere.com%2Fsmartpredict%2Fsentiment"
+    response = requests.get('https://api.twitter.com/1.1/search/tweets.json?q=nasa&result_type=popular', headers=headers)"""
+
+    #return HttpResponse(sent)
+
+        b = 'grant_type=authorization_code&code=1695b778a397733c8b035a6865799e4be223f2cd264ae7a7306e2f01d6e31229&client_id=ca9c8f78b779e9286f22e7b03d99ade8f2e9c8aa64091f35d4b641f3f42dbe43&client_secret=RuLSf4RZw4uCDbkCMr6NT8grRbE4y8QB&redirect_uri=http%3A%2F%2F127.0.0.1%3A8000%2Fsmartpredict%2Foauth%2Fcoinbaseredirect%2F'
+    """
+    today = datetime.today().strftime('%Y-%m-%d')
+    end = datetime.today() - timedelta(days=100)
+    end = end.strftime('%Y-%m-%d')
+    api_key = '7b22249b71f0577bac9759bde242462c'
+    url = 'https://data.fixer.io/api/fluctuation?access_key='+ api_key + '&start_date=' + today +'&end_date=' + end
+    endpoint = requests.get(url)"""
+
+    """
+    today = datetime.today().strftime('%Y-%m-%d')
+    end = datetime.today() - timedelta(days=100)
+    end = end.strftime('%Y-%m-%d')
+    api_key = '7b22249b71f0577bac9759bde242462c'
+    url = 'https://data.fixer.io/api/fluctuation?access_key='+ api_key + '&start_date=' + today +'&end_date=' + end
+    endpoint = requests.get(url)"""
+
+    #response = urllib.request.urlopen("https://www.coinbase.com").read()
+    #coinbase = 'https://www.coinbase.com/oauth/authorize?client_id=ca9c8f78b779e9286f22e7b03d99ade8f2e9c8aa64091f35d4b641f3f42dbe43&response_type=code'
+    #coinbase = 'https://www.coinbase.com/oauth/authorize?response_type=code&client_id=ca9c8f78b779e9286f22e7b03d99ade8f2e9c8aa64091f35d4b641f3f42dbe43&redirect_uri=http%3A%2F%2F127.0.0.1%3A8000%2Fsmartpredict%2F'
+
+    #auth = 'response_type = code & client_id = ca9c8f78b779e9286f22e7b03d99ade8f2e9c8aa64091f35d4b641f3f42dbe43'
+    #url = coinbase + urllib.parse.urlencode({'auth': auth})
+    #data = requests.get(coinbase)
+
+    # response = requests.post('https://api.coinbase.com/oauth/token%0Acurl', data=data)#return data
+
+    # https://www.coinbase.com/oauth/authorize?response_type = code & client_id = ca9c8f78b779e9286f22e7b03d99ade8f2e9c8aa64091f35d4b641f3f42dbe43 & redirect_uri = http://127.0.0.1:8000/smartpredict & scope = wallet:accounts: read
+
+
+    """
+
+    client = Client('fEEHmpT6wVL7wKkm', 'RuLSf4RZw4uCDbkCMr6NT8grRbE4y8QB', api_version = '2019-03-24')
+    currency_code = 'EUR'
+    payment_methods = client.get_payment_methods()
+    account = client.get_primary_account()
+
+    price = client.get_spot_price(currency=currency_code)
+
+    payment_method = client.get_payment_methods()[0]"""
+
+
+CRYPTO =================================================
+
+#response = urllib.request.urlopen("https://www.coinbase.com").read()
+    #coinbase = 'https://www.coinbase.com/oauth/authorize?client_id=ca9c8f78b779e9286f22e7b03d99ade8f2e9c8aa64091f35d4b641f3f42dbe43&response_type=code'
+    #coinbase = 'https://www.coinbase.com/oauth/authorize?response_type=code&client_id=ca9c8f78b779e9286f22e7b03d99ade8f2e9c8aa64091f35d4b641f3f42dbe43&redirect_uri=http%3A%2F%2F127.0.0.1%3A8000%2Fsmartpredict%2F'
+
+    #auth = 'response_type = code & client_id = ca9c8f78b779e9286f22e7b03d99ade8f2e9c8aa64091f35d4b641f3f42dbe43'
+    #url = coinbase + urllib.parse.urlencode({'auth': auth})
+    #data = requests.get(coinbase)
+
+    # response = requests.post('https://api.coinbase.com/oauth/token%0Acurl', data=data)#return data
+
+    # https://www.coinbase.com/oauth/authorize?response_type = code & client_id = ca9c8f78b779e9286f22e7b03d99ade8f2e9c8aa64091f35d4b641f3f42dbe43 & redirect_uri = http://127.0.0.1:8000/smartpredict & scope = wallet:accounts: read
+endpoint = 'https://www.coinbase.com/oauth/authorize?client_id=ca9c8f78b779e9286f22e7b03d99ade8f2e9c8aa64091f35d4b641f3f42dbe43&redirect_uri=http%3A%2F%2Fkellyb45.pythonanywhere.com%2Fsmartpredict%2F&response_type=code&scope=wallet%3Auser%3Aread'
+    grant_type = 'authorization_code'
+    # code =  '4c666b5c0c0d9d3140f2e0776cbe245f3143011d82b7a2c2a590cc7e20b79ae8'
+    client_id =  'ca9c8f78b779e9286f22e7b03d99ade8f2e9c8aa64091f35d4b641f3f42dbe43'
+    client_secret =  'RuLSf4RZw4uCDbkCMr6NT8grRbE4y8QB'
+    redirect_uri =  'http%3A%2F%2F127.0.0.1%3A8000%2Fsmartpredict%2Foauth%2Fcoinbaseredirect%2F'
+    data = {
+        'Content-Type': 'application/json',
+        'grant_type': 'authorization_code',
+        'code': '4c666b5c0c0d9d3140f2e0776cbe245f3143011d82b7a2c2a590cc7e20b79ae8',
+        'client_id': 'ca9c8f78b779e9286f22e7b03d99ade8f2e9c8aa64091f35d4b641f3f42dbe43',
+        'client_secret': 'RuLSf4RZw4uCDbkCMr6NT8grRbE4y8QB',
+        'redirect_uri': 'http%3A%2F%2F127.0.0.1%3A8000%2Fsmartpredict%2Foauth%2Fcoinbaseredirect%2F'
+    }
+    headers ='grant_type=authorization_code&code=1695b778a397733c8b035a6865799e4be223f2cd264ae7a7306e2f01d6e31229&client_id=ca9c8f78b779e9286f22e7b03d99ade8f2e9c8aa64091f35d4b641f3f42dbe43&client_secret=RuLSf4RZw4uCDbkCMr6NT8grRbE4y8QB&redirect_uri=http%3A%2F%2F127.0.0.1%3A8000%2Fsmartpredict%2Foauth%2Fcoinbaseredirect%2F'
+    url = 'https://api.coinbase.com/oauth/token'
+    #response = requests.post(url,headers=headers)
+
+
+FOREX====================
+
+    #context = {'user': request.user}
+    #response = requests.post('https://api-fxtrade.oanda.com/v3/accounts/001-004-2666238-001/orders', headers=headers, data=data)
+    #return render(request, 'smartpredict/forex.html', context)
+    #return HttpResponse(response)
+
+
+
+            print(api_key)
+            #user_ = User.objects.get(pk=1)
+            #profile = UserDetails(user=user_)
+            #profile.user.save()
+            #profile.save()
+
+            args = {'form': form, 'api_key': api_key}
+
+
+APICONNECT=================
+
+#prices = 'https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=EUR&api_key=5fd159fba0ac5f6c57a7408f616c83e708847738a64f5a0d80ce1d21d173aafc'
+    #response = requests.get(prices)
+
+
+    """
+    today = datetime.today().strftime('%Y-%m-%d')
+    end = datetime.today() - timedelta(days=100)
+    end = end.strftime('%Y-%m-%d')
+    api_key = '7b22249b71f0577bac9759bde242462c'
+    url = 'https://data.fixer.io/api/fluctuation?access_key='+ api_key + '&start_date=' + today +'&end_date=' + end
+    endpoint = requests.get(url)"""
+
+
+
+URLS=======
+    # ex: /smartpredict/5/
+    path('<int:UserDetails_id>/', views.detail, name='detail'),
+    # ex: /smartpredict/5/results/
+    path('<int:User_id>/results/', views.results, name='results'),
+    # ex: /smartpredict/5/vote/
+    path('<int:User_id>/vote/', views.vote, name='vote'),
+
+
+    views======
+
+    def detail(request, User_id):
+    try:
+        user = User.objects.get(pk=User_id)
+    except User.DoesNotExist:
+        raise Http404("User does not Exist")
+    return render(request, 'smartpredict/detail.html', { 'User' : User})
+
+def results(request, User_id):
+    response = "You're looking at the results of user %s."
+    return HttpResponse(response % User_id)
+
+def vote(request, User_id):
+    return HttpResponse("You're voting on user %s." % User_id)
+
+
+
+
+
+    import requests
+from datetime import datetime, timedelta
+
+
+
+def main():
+    eur_usd = requests.get('https://www.alphavantage.co/query?function=FX_DAILY&from_symbol=EUR&to_symbol=USD&outputsize=compact&apikey=IDXOCTF8K0T83A2A')
+    eur_usd = eur_usd.json()
+    eur_usd_prices = []
+
+    gbp_usd = requests.get('https://www.alphavantage.co/query?function=FX_DAILY&from_symbol=GBP&to_symbol=USD&outputsize=compact&apikey=IDXOCTF8K0T83A2A')
+    gbp_usd = gbp_usd.json()
+    gbp_usd_prices = []
+
+    gbp_eur = requests.get('https://www.alphavantage.co/query?function=FX_DAILY&from_symbol=GBP&to_symbol=EUR&outputsize=compact&apikey=IDXOCTF8K0T83A2A')
+    gbp_eur = gbp_eur.json()
+    gbp_eur_prices = []
+
+    eur_gbp = requests.get('https://www.alphavantage.co/query?function=FX_DAILY&from_symbol=EUR&to_symbol=GBP&outputsize=compact&apikey=IDXOCTF8K0T83A2A')
+    eur_gbp = eur_gbp.json()
+    eur_gbp_prices = []
+
+    days = []
+    i = 0
+    for element in eur_usd['Time Series FX (Daily)']:
+        today = datetime.today() - timedelta(days=i)
+        today = today.strftime('%Y-%m-%d')
+        try:
+            if today in str(eur_usd['Time Series FX (Daily)']):
+                days.append(today)
+                obj = eur_usd['Time Series FX (Daily)'][today]['1. open']
+                obj = float(obj)
+                eur_usd_prices.append(obj)
+
+                obj1 = gbp_usd['Time Series FX (Daily)'][today]['1. open']
+                obj1 = float(obj1)
+                gbp_usd_prices.append(obj1)
+
+                obj2 = gbp_eur['Time Series FX (Daily)'][today]['1. open']
+                obj2 = float(obj2)
+                gbp_eur_prices.append(obj2)
+
+                obj3 = eur_gbp['Time Series FX (Daily)'][today]['1. open']
+                obj3 = float(obj3)
+                eur_gbp_prices.append(obj3)
+                i += 1
+            else:
+                i += 1
+        except KeyError:
+            i += 1
+            pass
+    prices = []
+    prices.append(eur_usd_prices)
+    prices.append(gbp_usd_prices)
+    prices.append(eur_gbp_prices)
+    with open('fx.txt', 'w') as file:
+        file.write(prices)
+    return prices
+
+if __name__ == '__main__':
+    main()
+
+
+
+
+    import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+from matplotlib import style
+from datetime import datetime, timedelta
+
+today = datetime.today().strftime('%Y-%m-%d')
+i = 0
+while i < 100:
+    try:
+        today = datetime.today() - timedelta(days=i)
+        today = today.strftime('%Y-%m-%d')
+        print(today)
+        i += 1
+    except KeyError:
+        i += 1
+        pass
+
+style.use('default')
+
+fig = plt.figure()
+ax1 = fig.add_subplot(1,1,1)
+
+def animate(i):
+    graph_data = open('bitcoin1.txt','r').read()
+    lines = graph_data.split('\n')
+    xs = []
+    ys = []
+    for line in lines:
+        if len(line) > 1:
+            x, y = line.split(',')
+            xs.append(float(x))
+            ys.append(float(y))
+    ax1.clear()
+    ax1.plot(xs, ys)
+
+ani = animation.FuncAnimation(fig, animate, interval=500)
+plt.show()
+
+import datetime
+
+with open("bitcoin1.txt", "r") as f:
+    lines = f.readlines()
+with open("bitcoin1.txt", "w") as f:
+    i = 0
+    l = []
+    for line in lines:
+        line = line.strip("\n")
+        l.append(line.split(","))
+        l[0][0] = datetime.datetime.fromtimestamp(l[0][0]).isoformat()
+
+        if l[0][1].isdigit():
+            f.write(line +"\n")
+        l = []
+
+        if line.strip("\n").isdigit():
+            f.write(line)
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--
+  <ul style="list-style-type:none">
+   <li>{{current_eur_usd}}</li>
+    <li>{{current_gbp_usd}}</li>
+    <li>EUR/GBP: €{{eur_gbp_current}}</li>
+  </ul>
+
+  {%if pred_eur_usd_price > current_eur_usd %}
+    <p class="text-success">Expected EUR/USD closing price: €{{pred_eur_usd_price}}</p>
+  {% elif pred_eur_usd_price < current_eur_usd %}
+  <p class="text-danger">Expected EUR/USD closing price: €{{pred_eur_usd_price}}</p>
+    {% else %}
+    <p class="text-warning">Expected EUR/USD closing price: €{{pred_eur_usd_price}}</p>
+    {% endif %}
+  {%if pred_gbp_usd_price > current_gbp_usd %}
+    <p class="text-success">Expected GBP/USD closing price: £{{pred_gbp_usd_price}}</p>
+  {%elif pred_gbp_usd_price > current_gbp_usd %}
+  <p class="text-danger">Expected GBP/USD closing price: £{{pred_gbp_usd_price}}</p>
+    {% else %}
+    <p class="text-warning">Expected GBP/USD closing price: £{{pred_gbp_usd_price}}</p>
+    {% endif %}
+  {%if pred_gbp_eur_price > current_gbp_eur %}
+    <p class="text-success">Expected GBP/EUR closing price: £{{pred_gbp_eur_price}}</p>
+  {% elif pred_gbp_eur_price < current_gbp_eur %}
+  <p class="text-danger">Expected GBP/EUR closing price: £{{pred_gbp_eur_price}}</p>
+    {% else %}
+    <p class="text-warning">Expected GBP/EUR closing price: £{{pred_gbp_eur_price}}</p>
+    {% endif %
+  {%if pred_eur_gbp_price > eur_gbp_current %}
+    <p class="text-success">Expected EUR/GBP closing price: €{{pred_eur_gbp_price}}</p>
+  {% elif pred_eur_gbp_price < eur_gbp_current %}
+  <p class="text-danger">Expected EUR/GBP closing price: €{{pred_eur_gbp_price}}</p>
+    {% else %}
+    <p class="text-warning">Expected EUR/GBP closing price: €{{pred_eur_gbp_price}}</p>
+    {% endif %}
+  <p>Expected GBP/EUR closing price: £{{pred_gbp_eur_price}}</p>
+  <p>Expected EUR/GBP closing price: €{{pred_eur_gbp_price}}</p>
+  <ol style="list-style: none;">
+  {% if eur_usd_rsi > 60 %}
+    <li class="text-success">EUR/USD RSI: {{eur_usd_rsi}}</li>
+    {% elif eur_usd_rsi < 50 %}
+    <li class="text-danger">EUR/USD RSI: {{eur_usd_rsi}}</li>
+    {% else %}
+    <li class="text-warning">EUR/USD RSI: {{eur_usd_rsi}}</li>
+    {% endif %}
+  {% if gbp_usd_rsi > 60 %}
+    <li class="text-success">GBP/USD RSI: {{gbp_usd_rsi}}</li>
+    {% elif gbp_usd_rsi < 50 %}
+    <li class="text-danger">GBP/USD RSI: {{gbp_usd_rsi}}</li>
+    {% else %}
+    <li class="text-warning">GBP/USD RSI: {{gbp_usd_rsi}}</li>
+    {% endif %}
+  {% if gbp_eur_rsi > 60 %}
+    <li class="text-success">GBP/EUR RSI: {{gbp_eur_rsi}}</li>
+    {% elif gbp_eur_rsi < 50 %}
+    <li class="text-danger">GBP/EUR RSI: {{gbp_eur_rsi}}</li>
+    {% else %}
+    <li class="text-warning">GBP/EUR RSI: {{gbp_eur_rsi}}</li>
+    {% endif %}
+  {% if eur_gbp_rsi > 60 %}
+    <li class="text-success">EUR/GBP RSI: {{eur_gbp_rsi}}</li>
+    {% elif eur_gbp_rsi < 50 %}
+    <li class="text-danger">EUR/GBP RSI: {{eur_gbp_rsi}}</li>
+    {% else %}
+    <li class="text-warning">EUR/GBP RSI: {{eur_gbp_rsi}}</li>
+    {% endif %}
+  </ol>-->
+
+
+
+
+
+
+  """
+    days = []
+    i = 0
+    for element in eur_usd['Time Series FX (Daily)']:
+        today = datetime.today() - timedelta(days=i)
+        str_today = today.strftime('%Y-%m-%d')
+        try:
+            if str_today in str(eur_usd['Time Series FX (Daily)']):
+                days.append(str_today)
+                obj = eur_usd['Time Series FX (Daily)'][str_today]['4. close']
+                obj = float(obj)
+                eur_usd_prices.append(obj)
+                with open('fx1.txt', 'r') as file:
+                    f = file.readlines()
+                    day = f[-1]
+                    day = day[:10]
+                    day = day.strip("\n")
+                    stri = datetime.strptime(str_today, '%Y-%m-%d')
+                    day = datetime.strptime(day, '%Y-%m-%d')
+                    # print(stri, day)
+                    j = 1
+                    while stri > day:
+                        stri2 = str(stri)[:10]
+                        with open('fx1.txt', 'a') as file2:
+                            file2.write(stri2)
+                            file2.write(" , " + obj + "\n")
+                            file2.close()
+                        stri = stri - timedelta(days=j)
+                        j += 1
+                        print(stri2)
+                i += 1
+            else:
+                i += 1
+        except KeyError:
+            i += 1
+            pass
+    i = 0
+    for element in gbp_usd['Time Series FX (Daily)']:
+        today = datetime.today() - timedelta(days=i)
+        str_today = today.strftime('%Y-%m-%d')
+        try:
+            if str_today in str(gbp_usd['Time Series FX (Daily)']):
+                days.append(str_today)
+                obj = gbp_usd['Time Series FX (Daily)'][str_today]['4. close']
+                obj = float(obj)
+                gbp_usd_prices.append(obj)
+                with open('fx2.txt', 'r') as file:
+                    f = file.readlines()
+                    day = f[-1]
+                    day = day[:10]
+                    day = day.strip("\n")
+                    stri = datetime.strptime(str_today, '%Y-%m-%d')
+                    day = datetime.strptime(day, '%Y-%m-%d')
+                    # print(stri, day)
+                    while stri > day:
+                        j = 1
+                        k = 0
+                        today = datetime.today() - timedelta(days=k)
+                        str_today = today.strftime('%Y-%m-%d')
+                        with open('fx2.txt', 'a') as file2:
+                            obj2 = gbp_usd['Time Series FX (Daily)'][str_today]['4. close']
+                            obj2 = str(obj2)
+                            file2.write(str_today)
+                            file2.write(" , " + obj2 + "\n")
+                            file2.close()
+                        stri = stri - timedelta(days=j)
+                        j += 1
+                        k += 1
+                i += 1
+            else:
+                i += 1
+        except KeyError:
+            i += 1
+            pass
+
+    i = 0
+    for element in gbp_eur['Time Series FX (Daily)']:
+        today = datetime.today() - timedelta(days=i)
+        str_today = today.strftime('%Y-%m-%d')
+        try:
+            if str_today in str(gbp_eur['Time Series FX (Daily)']):
+                days.append(str_today)
+                obj = gbp_eur['Time Series FX (Daily)'][str_today]['4. close']
+                obj = float(obj)
+                gbp_eur_prices.append(obj)
+                with open('fx3.txt', 'r') as file:
+                    f = file.readlines()
+                    day = f[-1]
+                    day = day[:10]
+                    day = day.strip("\n")
+                    stri = datetime.strptime(str_today, '%Y-%m-%d')
+                    day = datetime.strptime(day, '%Y-%m-%d')
+                    # print(stri, day)
+                    while stri > day:
+                        j = 1
+                        k = 0
+                        today = datetime.today() - timedelta(days=k)
+                        str_today = today.strftime('%Y-%m-%d')
+                        with open('fx3.txt', 'a') as file2:
+                            obj2 = gbp_eur['Time Series FX (Daily)'][str_today]['4. close']
+                            obj2 = str(obj2)
+                            file2.write(str_today)
+                            file2.write(" , " + obj2 + "\n")
+                            file2.close()
+                        stri = stri - timedelta(days=j)
+                        j += 1
+                        k += 1
+                i += 1
+            else:
+                i += 1
+        except KeyError:
+            i += 1
+            pass
+
+    i = 0
+    for element in eur_gbp['Time Series FX (Daily)']:
+        today = datetime.today() - timedelta(days=i)
+        str_today = today.strftime('%Y-%m-%d')
+        try:
+            if str_today in str(eur_gbp['Time Series FX (Daily)']):
+                days.append(str_today)
+                obj = eur_gbp['Time Series FX (Daily)'][str_today]['4. close']
+                obj = float(obj)
+                eur_gbp_prices.append(obj)
+                with open('fx4.txt', 'r') as file:
+                    f = file.readlines()
+                    day = f[-1]
+                    day = day[:10]
+                    day = day.strip("\n")
+                    stri = datetime.strptime(str_today, '%Y-%m-%d')
+                    day = datetime.strptime(day, '%Y-%m-%d')
+                    # print(stri, day)
+                    while stri > day:
+                        j = 1
+                        k = 0
+                        today = datetime.today() - timedelta(days=k)
+                        str_today = today.strftime('%Y-%m-%d')
+                        with open('fx4.txt', 'a') as file2:
+                            obj2 = eur_gbp['Time Series FX (Daily)'][str_today]['4. close']
+                            obj2 = str(obj2)
+                            file2.write(str_today)
+                            file2.write(" , " + obj2 + "\n")
+                            file2.close()
+                        stri = stri - timedelta(days=j)
+                        j += 1
+                        k += 1
+                i += 1
+            else:
+                i += 1
+        except KeyError:
+            i += 1
+            pass
+    return """

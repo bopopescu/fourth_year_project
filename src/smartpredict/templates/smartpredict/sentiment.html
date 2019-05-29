@@ -1,0 +1,96 @@
+{% block content %}
+<html>
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width , initial-scale=1">
+    <title>SmartPredict</title>
+    <link rel="shortcut icon" type="image/png" href="{% static '/smartpredict/favicon.ico' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'index' %}">
+        <img src="{% static '/smartpredict/small_logo.png' %}" width="54" height="30" class="d-inline-block align-top" alt="">
+        SmartPredict
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'apiconnect' %}">Connect API <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'dashboard' %}">Dashboard <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">About <span class="sr-only"></span></a>
+            </li>
+        </ul>
+
+        <a class="btn btn-outline-danger" href="{% static '/user_manual.pdf' %}" target="_blank">Help</a>
+    </div>
+</nav>
+
+<!--<img src="{% static '/smartpredict/logo.png' %}" class="img-thumbnail float-right" alt="logo" width="200" height="200">-->
+<div class="jumbotron text-center">
+    <div class="container">
+        <h1 class="display-4">This is your Trading Dashboard</h1>
+        <p class="lead">The following graphs show the past 100 days of open prices on each Cryptocurrency.</p>
+    </div>
+</div>
+
+<div class="container">
+    {% if sent > 3 %}
+    <p class="text-success">Postive Sentiment Analysis for Bitcoin</p>
+    {% elif sent < -3 %}
+    <p class="text-danger">Negative Sentiment Analysis for Bitcoin</p>
+    {% else %}
+    <p class="text-warning">Neutral Sentiment Anlaysis for Bitcoin</p>
+    {%endif%}
+    {{eth_message}}
+
+    <canvas id="SENT"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script>
+      var ctx = document.getElementById('SENT').getContext('2d');
+      new Chart(document.getElementById("SENT"), {
+        type: 'doughnut',
+        data: {
+          labels: ["Good", "Bad", "Neutral"],
+          datasets: [{
+            label: "Sentiment",
+            backgroundColor: ["#00FF00", "#FF0000","#FFFF33"],
+            data: {{sents}}
+          }]
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'Sentiment Analysis of Bitcoin'
+          }
+        }
+    });
+
+    </script>
+
+<!-- Footer -->
+</div>
+</body>
+
+</html>
+{% endblock %}
