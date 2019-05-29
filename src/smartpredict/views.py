@@ -130,10 +130,10 @@ def cryptodashboard(request):
         lines = file.readlines()
     prediction = lines[-1]
 
-    consumer_key = 'HF9ENJeHDmsvE2vdOd2hgdcue'
-    consumer_secret = '1i7w1EUNlQmGwvFUCMQ9KHq5fCOikilWIBBIyNgxzmVwo7e5vA'
-    access_token = '2768999237-ae9azJ4K2arDP8qDNyzcmSu6Dkwhw7zFlOOe61T'
-    access_secret = 'WuLkjuFQKMvUsIgKFSEUarsfnwRq83kBAE6qUOpttnQ1b'
+    consumer_key = 'x'
+    consumer_secret = 'x'
+    access_token = 'x-x'
+    access_secret = 'x'
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_secret)
 
