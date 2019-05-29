@@ -35,7 +35,7 @@ Ben.
 
 Yesterday I finished my work on creating a logo for the project. I gave this somewhat of a priority early on in the project lifecycle. I believe it's important to establish an identity within the hundred or so projects that the examiners will be grading this year. It also helps me create a theme that will be consistent throughout all the documentation I'll provide. Here's what it looks like.
 
-![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/logo.png "logo")
+![](https://github.com/kellyb45/fourth_year_project/tree/master/docs/blog/images/logo.png "logo")
 
 The majority of the research I've done about using machine learning to predict financial data has suggested using Python because of it's powerful libraries like NumPy etc. To develop a WebApp written in Python will be something completely new to me. Again, a lot of articles online suggest that you use Django in order to achieve this. I’ve also never used Django before.
 
@@ -85,7 +85,9 @@ I made a small questionnaire so I can brief myself before stepping into the room
 
 After meeting with the project Approval panel this week I’m pleased to say my project has been approved. Thomas and Charlie gave me some advice on the challenges I might face. One of which is likely to be the lack of accuracy my AI predictor will have. To combat this I’ll have to implement some sort of sentiment analysis. I’m unsure whether I’ll have to create this myself or use some sort of plug-in. As with everything in the project it’s extremely time dependent. I’ll insert the notes they gave me on my Dashboard below.
 
-![](https://https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/approval.png "approval")
+
+![](
+https://github.com/kellyb45/fourth_year_project/tree/master/docs/blog/images/approval.png "approval")
 
 For the meantime I’ll focus on creating a simple front-end and connecting the WebApp to the database. I also need to do more reading on chart analysis and Long Short Term Memory as recommended by Martin.
 
