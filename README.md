@@ -4,6 +4,4 @@ trading needs. It aims to make this over-complicated industry intuitive, providi
 details and graphics that will help the user make decisions on which stock to invest in
 and why.
 
-![](https://gitlab.computing.dcu.ie/kellyb45/2019-ca400-kellyb45/raw/master/docs/blog/images/logo.png "logo")
-
-[http://kellyb45.pythonanywhere.com/smartpredict/](http://kellyb45.pythonanywhere.com/smartpredict/)
+![](https://github.com/kellyb45/fourth_year_project/blob/master/docs/blog/images/logo.png "logo")
